@@ -1,0 +1,324 @@
+@supports (font-variation-settings: normal) {
+	@font-face {
+		font-family: "Nunito";
+		font-weight: 200;
+		src: url(../fonts/Nunito-VariableFont_wght.ttf) format("truetype");
+	}
+}
+
+@supports not (font-variation-settings: normal) {
+	@font-face {
+		font-family: "Nunito";
+		font-weight: 300;
+		src: url(../fonts/Nunito-Regular.ttf) format("truetype");
+		src: url(../fonts/Nunito-Bold.ttf) format("truetype");
+	}
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Nunito', sans-serif;
+	font-size: 100%;
+	background-color: var(--background);
+	color: var(--color);
+}
+
+main span:hover {
+    background-color: rgba(128, 128, 128, 0.379);
+	cursor: pointer;
+}
+
+.theme-button {
+	color: var(--color);
+	padding: 0.4rem;
+	font-size: 1.5rem;
+	border-radius: 50%;
+	transition: all .2s ease-in;
+}
+
+.profile {
+	margin: 0;
+	text-align: center;
+}
+.avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: grey;
+	background-image: url(/assets/Reiji.webp);
+	background-size: 85%;
+	background-position: 5px 1px;
+	border: .5px var(--color) solid;
+}
+
+main {
+	width: calc(100% - 20rem);
+	height: 100%;
+	position: relative;
+	float: right;
+}
+
+.sidebar {
+	position: absolute;
+	width: 20rem;
+	height: 100%;
+	border-right: solid 1px;
+}
+
+/* About */
+
+p > span {
+	background-color: #2a3034;
+	padding: 2px;
+	color: darkcyan;
+	text-decoration: underline;
+	text-decoration-color: darkcyan;
+	text-underline-offset: 2px;
+	cursor: pointer;
+}
+
+p > span::after {
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-o-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+}
+
+p > span:hover::after {
+	cursor: pointer;
+	content: " (well its really nvim, but you get it) ";	
+	color: cyan;
+	text-decoration: dotted;
+}
+
+/* Skills */
+.skills ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.skills li {
+	display: flex;
+	list-style: none;
+	background-color: transparent;
+	padding: 1px;
+	width: 110px;
+	height: 110px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: all .3s;
+}
+
+.skills li:hover {
+	background-color: #294C60;
+}
+
+.skills img {
+	width: 90px;
+	height: auto;
+	margin: 0px;
+	border-radius: 10px;
+	padding: 0%;
+}
+
+
+/* General (sort later) */
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+	margin: 2rem auto;
+}
+
+:where(h1, h2 h4, h5, h6) {
+	background-color: var(--background-alt);
+	text-align: center;
+	margin: 0;
+	padding: 1rem;
+}
+
+:where(main > section, footer) {
+	padding: 2rem;
+}
+
+main>section>* {
+	max-width: 955px;
+	margin: auto;
+}
+
+main section:nth-child(even) {
+	background-color: var(--background-alt);
+}
+
+:where(a:link, a:visited) {
+	text-decoration-line: underline;
+	text-decoration-color: var(--accent);
+	text-underline-offset: 3px;
+}
+
+:where(a:hover, a:focus) {
+	text-decoration-style: solid;
+	text-decoration-color: var(--background-alt);
+	text-underline-offset: var(--primary);
+}
+
+h1 {
+	box-shadow: 0px 5px 5px var(--shadow);
+}
+
+span {
+	color: var(--danger);
+	letter-spacing: 1px;
+	font-weight: 300;
+	font-size: .9rem;
+}
+
+/* Form */
+
+label {
+	display: block;
+}
+
+:where(input[type="text"], 
+input[type="email"], textarea) {
+	width: 100%;	
+	padding: .5rem;
+	font-family: inherit;
+	color: inherit;
+	font-size: inherit;
+	background-color:  transparent;
+	border-width: 0px 0px 1px;
+	border-image: linear-gradient(to right, var(--primary), var(--accent));
+	border-image-slice: 30;
+}
+
+:where(input[type="text"], 
+input[type="email"], textarea):where(:hover, :focus) {
+	outline: none;
+	border-image: none;
+	border-color: var(--primary);
+}
+
+textarea {
+	resize: vertical;
+}
+
+.control-error {
+	margin-bottom: 2rem;
+}
+
+.control-error > span {
+	display: none;
+}
+
+:where(input:user-invalid, textarea:user-invalid) + .control-error > span {
+	display: block;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0 0 1rem;
+	border: none;
+}
+
+legend:has(~ label [required])::before,
+label:has(+ [required])::before {
+	content: "* ";
+	color: var(--danger);
+}
+
+button {
+	background: var(--primary);
+	color: var(--primary-contrast);
+	padding: .5rem 2rem;
+	cursor: pointer;
+	font-size: 1rem;
+	border-radius: 24px;
+	border: none;
+}
+
+button:where(:hover, :focus) {
+	outline: solid 1px var(--primary);
+	outline-offset: 2px;
+	transition: linear .1s;
+}
+
+legend {
+	margin-bottom: .5rem;
+}
+
+input[type="radio"] {
+	accent-color: var(--accent);
+}
+
+@supports not selector(:user-invalid) {
+	.control-error > span {
+		display: block;
+	}
+}
+
+/* Theme colors */
+.dark {
+	--background: #001b2e;
+	--background-alt: #07314e;
+	--primary: #84cbf3;
+	--primary-contrast: #001b2e;
+	--accent: #ffd9be;
+	--color: #ffffff;
+	--danger: #fdaeae;
+	--shadow: #3e5d70;
+	--border: #8b9398;
+}
+
+.light {
+	--background: #ffffff;
+	--background-alt: #fff6e6;
+	--primary: #294C60;
+	--primary-contrast: #ffffff;
+	--accent: #fca05d;
+	--color: #001b2e;
+	--danger: #c52b2b;
+	--shadow: #b8cfdd;
+	--border: #afbac0;
+}
+
+/* Header & Footer */
+header, footer {
+	height: 4rem;
+	position: absolute;
+	width: 100%;
+}
+
+header {
+	border-bottom: solid 1px;
+	top: 0;
+	padding: 0 10rem;
+}
+
+footer {
+	border-top: solid 1px;
+	bottom: 0;
+	padding: 0rem 10rem;
+}
+
+footer ul {
+	
+}
+
+
+@media (prefers-color-scheme: dark) {}
+
+@media (prefers-color-scheme: light) {
+
+}
