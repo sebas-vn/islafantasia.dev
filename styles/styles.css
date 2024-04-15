@@ -1,56 +1,34 @@
-@supports (font-variation-settings: normal) {
-	@font-face {
-		font-family: "Nunito";
-		font-weight: 200;
-		src: url(../fonts/Nunito-VariableFont_wght.ttf) format("truetype");
-	}
-}
-
-@supports not (font-variation-settings: normal) {
-	@font-face {
-		font-family: "Nunito";
-		font-weight: 300;
-		src: url(../fonts/Nunito-Regular.ttf) format("truetype");
-		src: url(../fonts/Nunito-Bold.ttf) format("truetype");
-	}
-}
+@import url('/styles/fonts.css');
 
 html,
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 200;
 	font-size: 100%;
 	background-color: var(--background);
 	color: var(--color);
 }
 
-main span:hover {
-    background-color: rgba(128, 128, 128, 0.379);
-	cursor: pointer;
-}
-
-.theme-button {
-	color: var(--color);
-	padding: 0.4rem;
-	font-size: 1.5rem;
-	border-radius: 50%;
-	transition: all .2s ease-in;
-}
+/* Sidebar */
 
 .profile {
 	margin: 0;
 	text-align: center;
 }
 .avatar {
-	width: 150px;
-	height: 150px;
+	display: block;
+	width: 140px;
+	height: 140px;
 	border-radius: 50%;
 	background-color: grey;
 	background-image: url(/assets/Reiji.webp);
 	background-size: 85%;
 	background-position: 5px 1px;
 	border: .5px var(--color) solid;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 main {
@@ -61,11 +39,60 @@ main {
 }
 
 .sidebar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	position: absolute;
 	width: 20rem;
 	height: 100%;
-	border-right: solid 1px;
+	border-right: solid .5px grey;
+	padding: 1rem;
 }
+
+.sidebar ul {
+	margin: 0;
+	padding: 0rem 3rem;
+}
+
+.sidebar .socials {
+	list-style: none;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.sidebar .index li {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	padding: .5rem 1rem;
+	border-radius: 16px;
+	text-align: right;
+	transition: all .3s;
+	margin-bottom: 10px;
+	letter-spacing: .3rem;
+	cursor: pointer;
+}
+
+.sidebar .index li:hover {
+	background-color: rgba(255, 255, 255, 0.163);
+}
+
+.sidebar .socials li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.theme-button {
+	cursor: pointer;
+	color: var(--color);
+	font-size: 1.5rem;
+	border-radius: 50%;
+	transition: all .2s ease-in;
+}
+
+
 
 /* About */
 
@@ -175,97 +202,6 @@ main section:nth-child(even) {
 
 h1 {
 	box-shadow: 0px 5px 5px var(--shadow);
-}
-
-span {
-	color: var(--danger);
-	letter-spacing: 1px;
-	font-weight: 300;
-	font-size: .9rem;
-}
-
-/* Form */
-
-label {
-	display: block;
-}
-
-:where(input[type="text"], 
-input[type="email"], textarea) {
-	width: 100%;	
-	padding: .5rem;
-	font-family: inherit;
-	color: inherit;
-	font-size: inherit;
-	background-color:  transparent;
-	border-width: 0px 0px 1px;
-	border-image: linear-gradient(to right, var(--primary), var(--accent));
-	border-image-slice: 30;
-}
-
-:where(input[type="text"], 
-input[type="email"], textarea):where(:hover, :focus) {
-	outline: none;
-	border-image: none;
-	border-color: var(--primary);
-}
-
-textarea {
-	resize: vertical;
-}
-
-.control-error {
-	margin-bottom: 2rem;
-}
-
-.control-error > span {
-	display: none;
-}
-
-:where(input:user-invalid, textarea:user-invalid) + .control-error > span {
-	display: block;
-}
-
-fieldset {
-	padding: 0;
-	margin: 0 0 1rem;
-	border: none;
-}
-
-legend:has(~ label [required])::before,
-label:has(+ [required])::before {
-	content: "* ";
-	color: var(--danger);
-}
-
-button {
-	background: var(--primary);
-	color: var(--primary-contrast);
-	padding: .5rem 2rem;
-	cursor: pointer;
-	font-size: 1rem;
-	border-radius: 24px;
-	border: none;
-}
-
-button:where(:hover, :focus) {
-	outline: solid 1px var(--primary);
-	outline-offset: 2px;
-	transition: linear .1s;
-}
-
-legend {
-	margin-bottom: .5rem;
-}
-
-input[type="radio"] {
-	accent-color: var(--accent);
-}
-
-@supports not selector(:user-invalid) {
-	.control-error > span {
-		display: block;
-	}
 }
 
 /* Theme colors */
