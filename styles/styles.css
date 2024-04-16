@@ -1,61 +1,91 @@
 @import url('/styles/fonts.css');
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 200;
-	font-size: 100%;
-	background-color: var(--background);
-	color: var(--color);
+:root {
+	color-scheme: dark light;
+	transition: ease 3s ease-in;
 }
 
-/* Sidebar */
+.light {
+	color-scheme: light;
+	--background: #edede9;
+	--primary-contrast: #d5bdaf;
+	--color: #22223b;
+	--danger: #ffb5a7;
+	--shadow: #e3d5ca;
+	--border: #d6ccc2;
+	--icon-filter: invert(0);
+	transition: all 3s ease-in;
+}
+
+.dark { 
+	--background: #2e3440;
+	--primary-contrast: #434c5e;
+	--color: #ffffff;
+	--border: #4c566a;
+	--danger: #fdaeae;
+	--shadow: #3b4252;
+	--icon-filter: invert(100%);
+	transition: all 3s ease-in;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:is(ul) {
+	list-style: none;
+}
+
+body {
+	letter-spacing: .1rem;
+	background-color: var(--background);
+	color: var(--color);
+	margin: 0;
+}
+
+/* Sidebar layout*/
 
 .profile {
 	margin: 0;
 	text-align: center;
 }
+
+:is(.profile p) {
+	font-style: italic;
+	font-size: .8rem;
+	margin-bottom: 8rem;
+}
+
 .avatar {
 	display: block;
 	width: 140px;
 	height: 140px;
 	border-radius: 50%;
-	background-color: grey;
 	background-image: url(/assets/Reiji.webp);
-	background-size: 85%;
-	background-position: 5px 1px;
-	border: .5px var(--color) solid;
+	background-size: 87%;
+	background-position: 5px 0px;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-main {
-	width: calc(100% - 20rem);
-	height: 100%;
-	position: relative;
-	float: right;
+	border: 5px var(--border) solid;
 }
 
 .sidebar {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	position: absolute;
 	width: 20rem;
 	height: 100%;
-	border-right: solid .5px grey;
-	padding: 1rem;
+	padding: 2rem .5rem;
+	border-right: solid .5px var(--border);
 }
 
 .sidebar ul {
-	margin: 0;
+	margin: 2rem 0rem;
 	padding: 0rem 3rem;
 }
 
 .sidebar .socials {
-	list-style: none;
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -63,25 +93,26 @@ main {
 .sidebar .index li {
 	display: flex;
 	align-items: center;
-	list-style: none;
 	padding: .5rem 1rem;
 	border-radius: 16px;
 	text-align: right;
-	transition: all .3s;
-	margin-bottom: 10px;
+	margin: .5rem 0;
 	letter-spacing: .3rem;
 	cursor: pointer;
 }
 
 .sidebar .index li:hover {
-	background-color: rgba(255, 255, 255, 0.163);
+	background-color: var(--shadow);
+	transition: all .3s;
 }
 
 .sidebar .socials li {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	margin: auto;
 }
 
 .theme-button {
@@ -89,9 +120,25 @@ main {
 	color: var(--color);
 	font-size: 1.5rem;
 	border-radius: 50%;
-	transition: all .2s ease-in;
 }
 
+img[src*="github"] {
+	filter: var(--icon-filter);
+}
+
+:where(.theme-button, img[src*=".svg"]):hover {
+	opacity: .7;
+}
+
+
+
+/* Main layout */
+main {
+	width: calc(100% - 20rem);
+	height: 100%;
+	position: relative;
+	float: right;
+}
 
 
 /* About */
@@ -132,7 +179,6 @@ p > span:hover::after {
 
 .skills li {
 	display: flex;
-	list-style: none;
 	background-color: transparent;
 	padding: 1px;
 	width: 110px;
@@ -145,7 +191,7 @@ p > span:hover::after {
 }
 
 .skills li:hover {
-	background-color: #294C60;
+	background-color: var(--shadow);
 }
 
 .skills img {
@@ -158,103 +204,23 @@ p > span:hover::after {
 
 
 /* General (sort later) */
-
-* {
-	box-sizing: border-box;
-}
-
 img {
 	display: block;
-	margin: 2rem auto;
-}
-
-:where(h1, h2 h4, h5, h6) {
-	background-color: var(--background-alt);
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-}
-
-:where(main > section, footer) {
-	padding: 2rem;
-}
-
-main>section>* {
-	max-width: 955px;
-	margin: auto;
-}
-
-main section:nth-child(even) {
-	background-color: var(--background-alt);
-}
-
-:where(a:link, a:visited) {
-	text-decoration-line: underline;
-	text-decoration-color: var(--accent);
-	text-underline-offset: 3px;
-}
-
-:where(a:hover, a:focus) {
-	text-decoration-style: solid;
-	text-decoration-color: var(--background-alt);
-	text-underline-offset: var(--primary);
-}
-
-h1 {
-	box-shadow: 0px 5px 5px var(--shadow);
-}
-
-/* Theme colors */
-.dark {
-	--background: #001b2e;
-	--background-alt: #07314e;
-	--primary: #84cbf3;
-	--primary-contrast: #001b2e;
-	--accent: #ffd9be;
-	--color: #ffffff;
-	--danger: #fdaeae;
-	--shadow: #3e5d70;
-	--border: #8b9398;
-}
-
-.light {
-	--background: #ffffff;
-	--background-alt: #fff6e6;
-	--primary: #294C60;
-	--primary-contrast: #ffffff;
-	--accent: #fca05d;
-	--color: #001b2e;
-	--danger: #c52b2b;
-	--shadow: #b8cfdd;
-	--border: #afbac0;
+	margin: .3rem auto;
 }
 
 /* Header & Footer */
 header, footer {
-	height: 4rem;
 	position: absolute;
 	width: 100%;
-}
-
-header {
-	border-bottom: solid 1px;
-	top: 0;
 	padding: 0 10rem;
 }
-
+header {
+	border-bottom: solid .5px var(--border);
+	height: 3rem;
+	top: 0;
+}
 footer {
-	border-top: solid 1px;
+	border-top: dotted .5px var(--border);
 	bottom: 0;
-	padding: 0rem 10rem;
-}
-
-footer ul {
-	
-}
-
-
-@media (prefers-color-scheme: dark) {}
-
-@media (prefers-color-scheme: light) {
-
 }

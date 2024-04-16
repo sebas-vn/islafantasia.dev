@@ -1,0 +1,17 @@
+:where(:root) {
+	--background: #edede9;
+	--primary-contrast: #d5bdaf;
+	--color: #22223b;
+	--danger: #ffb5a7;
+	--shadow: #e3d5ca;
+	--border: #d6ccc2;
+	--icon-filter: invert(0);
+}
+
+img[src*="github"] {
+	filter: var(--icon-filter);
+}
+
+#toggle:hover {
+	background-color: aqua;
+}

@@ -5,13 +5,9 @@
 	let matchesMedia = window.matchMedia("(prefers-color-scheme: dark)");
 	if (!theme && window.matchMedia && matchesMedia) {
 		theme = "dark";
+	} else {
+		theme = 'light';
 	}
-
-	if (!theme || (theme !== "light" && theme !== "dark")) {
-		theme = "light";
-	}
-
-	setTheme(theme);
 
 	let themeButton = document.querySelector(".theme-button");
 	themeButton.addEventListener("click", () => {
@@ -23,15 +19,16 @@
 			setTheme("light");
 		}
 	});
+	
+	setTheme(theme);
 })();
 
 function setTheme(theme) {
 	let btn = document.querySelector(".theme-button");
 	localStorage.setItem("theme", theme);
 
-	const body = document.querySelector("body");
-	body.classList.remove("light", "dark");
+	const body = document.querySelector(":root");
+	body.classList.remove("light", "dark", "os-default");
 	body.classList.add(theme);
-
 	btn.innerText = `${theme === 'light' ? 'dark' : 'light'}_mode`;
 }
