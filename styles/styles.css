@@ -111,6 +111,10 @@ body {
 	transition: all .3s;
 }
 
+.active {
+	background-color: var(--shadow);
+}
+
 .sidebar .socials li {
 	box-sizing: border-box;
 	display: flex;
@@ -211,7 +215,12 @@ p > span:hover::after {
 	text-decoration: dotted;
 }
 
+.summary {
+	margin: 10rem;
+}
+
 /* Skills */
+
 .skills ul {
 	display: flex;
 	flex-direction: row;
@@ -238,11 +247,26 @@ p > span:hover::after {
 }
 
 .skills img {
-	width: 90px;
+	width: 5rem;
 	height: auto;
 	margin: 0px;
 	border-radius: 10px;
 	padding: 0%;
+}
+
+a {
+	color: var(--color);
+	text-decoration: none;
+	font-style: oblique;
+}
+
+a:not(.index) {
+	font-style: normal;
+	text-decoration: none;
+}
+
+a :visited {
+	color: var(--color);
 }
 
 
@@ -257,11 +281,13 @@ header, footer {
 	width: 100%;
 	padding: 0 10rem;
 }
+
 header {
-	position: relative;
+	position: static;
 	border-bottom: solid .5px var(--border);
 	height: 3rem;
 }
+
 footer {
 	position: absolute;
 	border-top: dotted .5px var(--border);
