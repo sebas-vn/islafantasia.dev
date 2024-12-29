@@ -4,9 +4,6 @@
 	let theme = localStorage.getItem("theme");
 	let matchesMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
-	console.log(theme);
-	console.log(matchesMedia.matches)
-
 	if (theme === null) {
 		if (matchesMedia.matches) {
 			theme = "dark";
