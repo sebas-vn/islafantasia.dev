@@ -61,7 +61,7 @@ body {
 	width: 140px;
 	height: 140px;
 	border-radius: 50%;
-	background-image: url(/assets/Reiji.webp);
+	background-image: url(/assets/profile.jpg);
 	background-size: 87%;
 	background-position: 5px 0px;
 	margin-left: auto;
@@ -189,6 +189,10 @@ section.about, section.projects {
 
 
 /* About */
+
+p {
+	text-justify: distribute;
+}
 
 p > span {
 	background-color: #2a3034;

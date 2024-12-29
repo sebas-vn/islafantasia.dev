@@ -3,10 +3,16 @@
 
 	let theme = localStorage.getItem("theme");
 	let matchesMedia = window.matchMedia("(prefers-color-scheme: dark)");
-	if (!theme && window.matchMedia && matchesMedia) {
-		theme = "dark";
-	} else {
-		theme = 'light';
+
+	console.log(theme);
+	console.log(matchesMedia.matches)
+
+	if (theme === null) {
+		if (matchesMedia.matches) {
+			theme = "dark";
+		} else {
+			theme = 'light';
+		}
 	}
 
 	let themeButton = document.querySelector(".theme-button");
@@ -19,11 +25,13 @@
 			setTheme("light");
 		}
 	});
-	
+
 	setTheme(theme);
+
 })();
 
 function setTheme(theme) {
+	console.log(theme);
 	let btn = document.querySelector(".theme-button");
 	localStorage.setItem("theme", theme);
 
