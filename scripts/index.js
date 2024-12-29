@@ -32,3 +32,5 @@ function setTheme(theme) {
 	body.classList.add(theme);
 	btn.innerText = `${theme === 'light' ? 'dark' : 'light'}_mode`;
 }
+
+

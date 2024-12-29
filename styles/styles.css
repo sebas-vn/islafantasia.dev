@@ -85,6 +85,11 @@ body {
 	padding: 0rem 3rem;
 }
 
+.sidebar a {
+	text-decoration: none;
+	color: var(--color);
+}
+
 .sidebar .socials {
 	display: flex;
 	justify-content: space-evenly;
@@ -104,6 +109,10 @@ body {
 .sidebar .index li:hover {
 	background-color: var(--shadow);
 	transition: all .3s;
+}
+
+.active {
+	background-color: var(--shadow);
 }
 
 .sidebar .socials li {
@@ -140,6 +149,44 @@ main {
 	float: right;
 }
 
+section.about, section.projects {
+	padding: 2rem 5rem;
+}
+
+/* Project card */
+
+.pcard {
+	display: inline-block;
+	min-width: 300px;
+	max-width: 350px;
+	border: dotted .5px var(--border);
+	transition: .2s;
+}
+
+.pcard:hover {
+	cursor: pointer;
+	box-shadow: -8px 8px 1px var(--shadow);
+	transform: translate(10px, -10px);
+}
+
+.pcard img {
+	width: -webkit-fill-available;
+}
+
+.pcard-title {
+	width: 300px;
+}
+
+.pcard-body {
+	min-width: 300px;
+	max-width: 500px;
+	padding: 1rem;
+}
+
+.pcard .actions {
+	position: relative;
+}
+
 
 /* About */
 
@@ -168,7 +215,12 @@ p > span:hover::after {
 	text-decoration: dotted;
 }
 
+.summary {
+	margin: 10rem;
+}
+
 /* Skills */
+
 .skills ul {
 	display: flex;
 	flex-direction: row;
@@ -195,11 +247,26 @@ p > span:hover::after {
 }
 
 .skills img {
-	width: 90px;
+	width: 5rem;
 	height: auto;
 	margin: 0px;
 	border-radius: 10px;
 	padding: 0%;
+}
+
+a {
+	color: var(--color);
+	text-decoration: none;
+	font-style: oblique;
+}
+
+a:not(.index) {
+	font-style: normal;
+	text-decoration: none;
+}
+
+a :visited {
+	color: var(--color);
 }
 
 
@@ -207,20 +274,23 @@ p > span:hover::after {
 img {
 	display: block;
 	margin: .3rem auto;
-}
+}		
 
 /* Header & Footer */
 header, footer {
-	position: absolute;
 	width: 100%;
 	padding: 0 10rem;
 }
+
 header {
+	position: static;
 	border-bottom: solid .5px var(--border);
 	height: 3rem;
-	top: 0;
 }
+
 footer {
+	position: absolute;
 	border-top: dotted .5px var(--border);
+	height: 4rem;
 	bottom: 0;
 }
