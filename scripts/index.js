@@ -4,6 +4,15 @@
 	let theme = localStorage.getItem("theme");
 	let matchesMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
+	let profile = document.querySelector('.avatar-sm');
+
+	if (profile != null) {
+		profile.addEventListener("click", () => {
+			let sidebar = document.querySelector('.sidebar');
+			sidebar.style.display = 'flex';
+		})
+	}
+
 	if (theme === null) {
 		if (matchesMedia.matches) {
 			theme = "dark";

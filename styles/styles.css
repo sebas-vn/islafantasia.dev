@@ -190,8 +190,12 @@ section.about, section.projects {
 
 /* About */
 
-p {
-	text-justify: distribute;
+.summary {
+	margin: 10%;
+}
+
+.summary > p {
+	text-align: justify;
 }
 
 p > span {
@@ -217,10 +221,6 @@ p > span:hover::after {
 	content: " (well its really nvim, but you get it) ";	
 	color: cyan;
 	text-decoration: dotted;
-}
-
-.summary {
-	margin: 10rem;
 }
 
 /* Skills */
@@ -283,7 +283,9 @@ img {
 /* Header & Footer */
 header, footer {
 	width: 100%;
-	padding: 0 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: start;
 }
 
 header {
@@ -297,4 +299,53 @@ footer {
 	border-top: dotted .5px var(--border);
 	height: 4rem;
 	bottom: 0;
+}
+
+.avatar-sm {
+	display: none;
+}
+
+@media (1000px <= width) {
+}
+
+@media (360px <= width <= 450px) {
+	.sidebar {
+		width: 100%;
+		display: none;
+		position: absolute;
+		z-index: 100;
+		background-color: var(--background);
+		border: none;
+		flex-direction: column;
+		align-items: space-between;
+		transition: 0.3s linear;
+	}
+
+
+	
+	main {
+		width: 100%;
+		overflow: auto;
+	}
+
+	html, body {
+		overflow: hidden;
+	}
+
+	header {
+		height: auto;
+	}
+	
+	.avatar-sm {
+		display: block;
+		width: 2.5rem;
+		height: 2.5rem;
+		margin: .5rem 2rem;
+		border: 3px var(--border) solid;
+	}
+
+	.profile p {
+		margin: 0 10px;
+	}
+
 }
